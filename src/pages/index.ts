@@ -1,5 +1,5 @@
 import Home from './Home/index';
-import List from './List/index';
+import List from './CaseList/index';
 
 export {
     Home,

@@ -6,8 +6,11 @@ import {
     Link
 } from "react-router-dom";
 import Home from './pages/Home/index.tsx';
-import { NavBar, Icon } from 'antd-mobile';
+import CaseList from './pages/CaseList/index.tsx';
+import CaseDetail from './pages/CaseDetail/index.tsx';
+import { NavBar, Icon, Button } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
+import './App.less';
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -29,11 +32,11 @@ export default function BasicExample() {
                         <Icon key="0" type="ellipsis"/>,
                     ]}
                 />
-                <ul>
-                    <li>
+                <ul className="app-tabs">
+                    <li className="app-tab-pane">
                         <Link to="/">首页</Link>
                     </li>
-                    <li>
+                    <li className="app-tab-pane">
                         <Link to="/list">案件追踪</Link>
                     </li>
                 </ul>
@@ -52,7 +55,10 @@ export default function BasicExample() {
                         <Home />
                     </Route>
                     <Route path="/list">
-                        <List />
+                        <CaseList />
+                    </Route>
+                    <Route path="/case">
+                        <CaseDetail />
                     </Route>
                 </Switch>
             </div>
@@ -60,10 +66,3 @@ export default function BasicExample() {
     );
 }
 
-function List() {
-    return (
-        <div>
-            <h2>List</h2>
-        </div>
-    );
-}
